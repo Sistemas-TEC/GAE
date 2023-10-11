@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GAE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GAE.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-colorMainTrans">
+            <div class="container-fluid align-middle">
+                <div class="align-middle">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">
+                        @* //This could be the link to the inicial app page *@
+                        <i class="bi bi-mortarboard-fill"></i>
+                        GAE
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    @{
+                        var solicitudesIsActive = Context.Request.Path.Value.Contains("/Solicitudes");
+                        var movimientoEstudiantilIsActive = Context.Request.Path.Value.Contains("/Movimiento Estudiantil");
+                        var contactoIsActive = Context.Request.Path.Value.Contains("/Contacto");
+                    }
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link @(solicitudesIsActive ? "active" : "")" asp-area="" asp-page="/Solicitudes">Solicitudes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(movimientoEstudiantilIsActive ? "active" : "")" asp-area="" asp-page="/Movimiento Estudiantil">Movimiento Estudiantil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(contactoIsActive ? "active" : "")" asp-area="" asp-page="/Contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
+                    <i class="bi bi-person"></i>
+                </div>
+
+
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="page d-flex flex-row bg-grayContrast">
+        <div class="content-page w-100">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <footer class="border-top footer text-muted ">
+        <div class="container">
+            &copy; 2023 Gestor de Asambleas Estudiantiles
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

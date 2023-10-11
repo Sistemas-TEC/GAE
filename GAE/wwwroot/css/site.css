@@ -1,0 +1,485 @@
+:root {
+    --colorMain: #FA5F55;
+    --colorMainRGB: 250, 95, 85;
+    --colorMainTrans: rgba(250, 95, 85, 0.1);
+    --greyFooter: #F1F1F1;
+    --whiteContranst: #F6F6F6;
+    --greyFooterRGB: 241,241,241;
+    --textGrey: #495057;
+    --textGreyRGB: 73, 80, 87;
+    --textcolor: #FA5F55;
+    --textcolorRGB: 0, 163, 143;
+    --textBlack: 000000;
+    --textBlackRGB: 0, 0, 0;
+    --white: #FFFFFF;
+    --font-primary: 'Roboto', sans-serif;
+    --navMaxHeight: 85px;
+    --footerMaxHeigth: 50px;
+}
+
+html {
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    font-family: var(--font-primary);
+    min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+/* This secction is for color backgrounds*/
+
+.bg-colorMain {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--colorMainRGB), var(--bs-bg-opacity));
+}
+
+.bg-gradient {
+    background: var(--gradientMaincolor) !important;
+    color: white;
+}
+
+
+
+/* This secction is for color backgrounds with transparency*/
+
+.bg-colorMainTrans {
+    --bs-bg-opacity: 0.1;
+    background-color: rgba(var(--colorMainRGB), var(--bs-bg-opacity));
+}
+
+.bg-grayContrast {
+    background-color: var(--whiteContranst);
+}
+
+.bg-footer {
+    background-color: var(--greyFooter);
+}
+
+/* This secction is for color for texts*/
+
+.txt-Grey {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--textGreyRGB), var(--bs-bg-opacity));
+}
+
+.txt-color {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--textGreyRGB), var(--bs-bg-opacity));
+}
+
+/* This secction set the color of boostrap valriables*/
+.text-primary {
+    color: var(--colorMain) !important;
+}
+
+.btn-primary {
+    color: var(--colorMain);
+    border-color: var(--colorMain);
+}
+
+.btn-outline-primary {
+    color: var(--colorMain);
+    border-color: var(--colorMain);
+}
+
+    .btn-outline-primary:hover {
+        color: var(--colorMain);
+        background-color: var(--colorMainTrans);
+        border-color: var(--colorMain);
+    }
+
+.active {
+    background-color: var(--colorMain) !important;
+    border: 0px;
+}
+
+.list-group-item:hover {
+    background-color: var(--colorMainTrans);
+}
+
+.disable {
+    background-color: var(--colorDisable) !important;
+}
+
+/*---------- Layout modifications*/
+
+
+.icon-Profile {
+    width: 50px;
+    height: 50px;
+    clip-path: circle(50% at 50% 50%);
+    background-color: #ACB4BC;
+}
+
+.navbar {
+    max-height: var(--navMaxHeight);
+    height: var(--navMaxHeight);
+}
+
+.page {
+    height: calc(100% - var(--navMaxHeight) - var(--footerMaxHeigth));
+    overflow: hidden;
+}
+
+.site-bar {
+    border-radius: 0px 10px 10px 0px;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-color: var(--colorMainTrans);
+}
+
+.aside-link {
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    color: var(--textGrey);
+}
+
+.aside-link:hover {
+    color: var(--textGrey);
+}
+
+.content-page {
+    overflow-y: auto; /* Scrollable content */
+}
+
+
+
+
+.inline-nav-item {
+    display: flex;
+    width: 234px;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 24px 8px 30px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff00;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+
+.inline-nav-item:hover {
+    background-color: #e7f1ff;
+    border-right-width: 3px;
+    border-right-style: solid;
+    border-color: var(--colorMain);
+}
+
+.inline-active {
+    display: flex;
+    width: 234px;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 24px 8px 30px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #e7f1ff;
+    border-right-width: 3px;
+    border-right-style: solid;
+    border-color: var(--colorMain);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--greyFooter);
+    height: 100%;
+    max-height: var(--footerMaxHeigth);
+}
+
+
+/* Header text format */
+.nav-link {
+    color: var(--textGrey) !important; /* This important would be unnecessary, but if we remove doesn't work, Why ? I don't know but I don't care*/
+    font-weight: lighter;
+}
+
+.activeNav {
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    font-weight: bold;
+}
+
+/* Footer format */
+.footer {
+    background-color: var(--greyFooter);
+}
+
+.footer.text-muted .container {
+    color: black;
+    text-align: center;
+    font-weight: lighter;
+}
+
+/* Dropdown format */
+.custom-dropdown-button {
+    background-color: transparent !important;
+    color: #00A38B !important;
+    border: 1px solid #00A38B;
+    width: 175px;
+}
+
+.custom-dropdown-button:hover {
+    background-color: var(--colorMainTrans) !important;
+}
+
+.custom-dropdown-item {
+    color: black !important;
+}
+
+    .custom-dropdown-item:hover {
+        color: #00A38B !important;
+    }
+
+/* Calendar card format*/
+
+/* Datepicker inicio format */
+
+.ui-datepickerInicio {
+    border: 1px solid var(--colorMain);
+}
+
+#datepickerInicio-icon .input-group-text {
+    color: var(--colorMain);
+    border-color: var(--colorMain);
+}
+
+#datepickerInicio-input {
+    border: 1px solid var(--colorMain);
+    background-color: transparent;
+}
+
+#datepickerInicio-input::placeholder {
+    color: var(--colorMain);
+}
+
+#datepickerInicio-input {
+    color: var(--colorMain);
+}
+
+/* Datepicker final format */
+
+.ui-datepickerFinal {
+    border: 1px solid var(--colorMain);
+}
+
+#datepickerFinal-icon .input-group-text {
+    color: var(--colorMain);
+    border-color: var(--colorMain);
+}
+
+#datepickerFinal-input {
+    border: 1px solid var(--colorMain);
+    background-color: transparent;
+}
+
+#datepickerFinal-input::placeholder {
+    color: var(--colorMain);
+}
+
+#datepickerFinal-input {
+    color: var(--colorMain);
+}
+
+/* Button final format */
+
+.button-gradient {
+    background: var(--gradientMaincolor);
+    border: none;
+    color: white;
+}
+
+.button-gradient:hover {
+    background: var(--gradientMaincolorTrans);
+    border: none;
+    color: white;
+}
+
+/* Modal button format */
+
+#acept .modal-footer .button-color {
+    background-color: var(--colorMain) !important;
+    color: white;
+}
+
+#reject .modal-footer .button-color {
+    background-color: var(--colorMain) !important;
+    color: white;
+}
+
+#justify .modal-footer .button-color {
+    background-color: var(--colorMain) !important;
+    color: white;
+}
+
+/* tables icons format */
+
+.custom-success {
+    color: #0F5132;
+}
+
+.custom-danger {
+    color: #DC3545;
+}
+
+/* upload format */
+
+.file-upload {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: var(--textGrey);
+    background: white;
+    border: 1px solid var(--colorMain);
+    padding: 10px;
+    border-radius: 4px;
+    transition: all .2s ease;
+    outline: none;
+    font-weight: 500;
+}
+
+.file-upload-btn:hover {
+    background: var(--colorMainTrans);
+    color: var(--textGrey);
+    transition: all .2s ease;
+    cursor: pointer;
+    border: 1px solid var(--colorMain);
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-wrap {
+    margin-top: 20px;
+    border: 2px dashed var(--colorMain);
+    position: relative;
+}
+
+.image-dropping, .image-upload-wrap:hover {
+    background-color: var(--colorMainTrans);
+    border: 3px dashed var(--colorMain);
+}
+
+.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+}
+
+.drag-text {
+    text-align: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: var(--colorMain);
+    padding: 60px 0;
+}
+
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    font-weight: 500;
+}
+
+.remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+    .remove-image:active {
+        border: 0;
+        transition: all .2s ease;
+    }
+
+/* Accordion body */
+
+.label-bold {
+    font-weight: bold;
+}
+
+/* button width */
+
+.full-width {
+    width: 100%;
+    display: block;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* activity checkbox width */
+
+.checkbox-container {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: inline-block;
+}
