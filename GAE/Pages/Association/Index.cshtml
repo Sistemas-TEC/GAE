@@ -1,4 +1,78 @@
 ﻿@page
 @model GAE.Pages.Association.IndexModel
+
 @{
+    ViewData["Title"] = "Index";
 }
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssemblyDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssemblyStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssemblyEndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssemblyStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssociationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].DelegateId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].Participants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assembly[0].AssemblyFacility)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Assembly) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssemblyDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssemblyStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssemblyEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssemblyStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssociationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DelegateId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssemblyFacility)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AssemblyId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AssemblyId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AssemblyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
